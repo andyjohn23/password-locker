@@ -74,7 +74,8 @@ def main():
             save_user(create_user(username, email, password))
             print("__________________________________________")
 
-            print(f"{username},you have successfully created an account, select login option")
+            print(
+                f"{username},you have successfully created an account, select login option")
 
         elif option == "2":
             print(" ")
@@ -87,11 +88,88 @@ def main():
             print("Enter Password")
             password = input()
             verifying_user = check_existing_users(username, password)
+        elif option == "3":
+            break
 
             if verifying_user == username:
                 print(" ")
                 print(f"{username}, welcome to python password locker")
                 print(" ")
+                while True:
+                     print("___________________________________________")
+                     print("""Select an option:
+                            1. 1-Add details to your account
+                            2. 2-Display your account details
+                            3. 3-End Session""")
+
+                     option = int(input())
+
+                     if option == "1":
+                        print(" ")
+                        print("Enter your details:")
+                        print("____________________________________")
+
+                        print("Which Social Media Network are you in..?")
+                        social_network = input()
+                        print("Account Name used in your choice above..")
+                        account_name = input()
+                     while True:
+                        print(" ")
+                        print("_______________________________________________")
+                        print("""Select an option:
+                            1. 1-Use Own password
+                            2. 2-Use auto password generator
+                            3. 3-End Session""")
+                        option = int(input())
+                        print("_____________________________________________")
+                        if option == "1":
+                            print(" ")
+                            print("Please Enter Your Password")
+                            password = input()
+                            break
+
+                        elif option == "2":
+                            password = automatic_generated_password()
+                            break
+
+                        elif option == "3":
+                            break
+                        else:
+                            print("wrong option selected please try again!!")
+
+                        save_users_details(create_users_details(
+                            username, social_network, account_name, password))
+                        print(" ")
+                        print(
+                            "_________________________________________________________")
+                        print("Details Created Successfully..!!")
+                        print(
+                            f"Social Media{social_network} \n Account Name: {account_name} \n Password: {password}")
+                        print(" ")
+
+                    elif option == "2":
+                           print(" ")
+                           if display_user_details(username):
+                            print("List of your details")
+                            print("____________________________________________")
+                            for user_details in display_user_details(username):
+                                print(
+                                    f"Social Media: {user_details.social_network} \n Account Name: {user_details.account_name} \n Password: {user_details.password}")
+
+                                else:
+                                    print(" ")
+                                    print("No user details to display")
+                                    print(" ")
+                                
+                                
+                    else:
+                            print(' ')
+                            print('Oops! Wrong details entered. Try again or Create an Account.')
+
+                else:
+                    print("-"*60)
+                    print(' ')
+                    print('Oops! Wrong option entered. Try again.')
 
 
 if __name__ == '__main__':
