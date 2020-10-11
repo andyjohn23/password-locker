@@ -25,7 +25,7 @@ class user_credentials:
 
     def save_user_details(self):
         """saving user information"""
-        Users.users_list.append(self)
+        user_credentials.user_credential_list.append(self)
 
     def delete_user_details(self):
         """deleting user infromation"""
