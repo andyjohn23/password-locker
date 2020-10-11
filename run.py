@@ -28,9 +28,9 @@ def main():
         print("WELCOME TO PYTHON PASSWORD-LOCKER")
         print(" ")
         print("""Select an option:
-               1. "1"-Create an account(using own password)
-               2. "2"-Login to your account
-               3. "3"-Exit Python Password Locker""")
+               1. 1-Create an account
+               2. 2-Login to your account
+               3. 3-Exit Python Password Locker""")
         print(" ")
         option = int(input())
 

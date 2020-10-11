@@ -14,7 +14,7 @@ class user_credentials:
         registered_users = ""
         for user in Users.users_list:
             if (user.username == username and user.password == password):
-                registered_users = user.email
+                registered_users = user.username
         return registered_users
 
     def __init__(self, username, social_network, account_name, password):
