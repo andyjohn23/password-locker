@@ -40,13 +40,16 @@ class user_credentials:
         return generated_password
 
     @classmethod
-    def display_user_details(username):
+    def display_user_details(cls, username):
         """Class method to show user details"""
         user_credential_list = []
         for user_details in user_credentials.user_credential_list:
             if user_details.username == username:
              user_credential_list.append(user_details)
-        return user_details
+        return user_credential_list
+
+
+   
     
         
     
