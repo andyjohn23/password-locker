@@ -47,7 +47,6 @@ class user_credentials:
             if user_details.username == username:
              user_credential_list.append(user_details)
         return user_credential_list
-    @classmethod
 
    
     
