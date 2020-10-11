@@ -1,6 +1,5 @@
 import unittest
 from credentials import user_credentials
-from user import Users
 
 
 class TestUserDetails(unittest.TestCase):
@@ -17,6 +16,12 @@ class TestUserDetails(unittest.TestCase):
         """
         self.new_user_details = user_credentials(
             "andyjohn", "Instagram", "andyJohn", "andy123")  # create user details object
+
+    def tearDown(self):
+        """
+        tearDown method that does clean up after each test case has run.
+        """
+        user_credentials.user_credential_list = []
 
     def test__init__(self):
         """
@@ -43,23 +48,18 @@ class TestUserDetails(unittest.TestCase):
         details = user_credentials(
             "andrew", "Facebook", "andrewj", "johnandy1234")  # new user details
         details.save_user_details
-        self.assertEqual(len(user_credentials.user_credential_list), 2)
+        self.assertEqual(len(user_credentials.user_credential_list), 1)
 
-    def test_user_details_exists(self):
+    def test_display_user_details(self):
         """
-        test to check if we can return a Boolean  if we cannot find the user details.
+        Test to check if the display_credentials method, displays the correct credentials.
         """
         self.new_user_details.save_user_details()
-        test_user = user_credentials("andrewj","Instagram","andyj","andyj12") # new user details
-        test_user.save_user_details()
+        display = user_credentials("johndoe", "Twitter", "doejohn", "john123")
+        display.save_user_details()
+        display = user_credentials("johndoe", "Twitter", "doejohn", "john123")
+        display.save_user_details()
+        self.assertEqual(len(user_credentials.display_user_details(display.username)), 2)
 
-        user_detail_exists = user_credentials.checking_user_details("andrewj", "andyj12")
-
-        self.assertTrue(user_detail_exists)
-
-    
-      
 if __name__ == '__main__':
     unittest.main()
-
-
