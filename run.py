@@ -38,7 +38,7 @@ def save_users_details(details):
 
 def display_user_details(username):
     """Function to display user details"""
-    return user_credentials.display_user_details()
+    return user_credentials.display_user_details(username)
 
 
 def automatic_generated_password():
@@ -53,10 +53,7 @@ def main():
         print(" ")
         print("WELCOME TO PYTHON PASSWORD-LOCKER")
         print(" ")
-        print("""Select an option:
-               1-Create an account
-               2-Login to your account
-               3-Exit Python Password Locker""")
+        print("Select an option: \n 1-Create an account \n 2-Login to your account \n 3-Exit Python Password Locker")
         print(" ")
         option = int(input())
 
@@ -96,10 +93,7 @@ def main():
                 print(" ")
                 while True:
                     print("___________________________________________")
-                    print("""Select an option:
-                            1-Add details to your account
-                            2-Display your account details
-                            3-End Session""")
+                    print("Select an option: \n 1-Add details to your account \n 2-Display your account details \n 3-End Session")
 
                     option = int(input())
 
@@ -115,10 +109,7 @@ def main():
                         while True:
                            print(" ")
                            print("_______________________________________________")
-                           print("""Select an option:
-                            1-Use Own password
-                            2-Use auto password generator
-                            3-End Session""")
+                           print("Select an option:\n 1-Use Own password \n 2-Use auto password generator \n 3-End Session")
                            option = int(input())
                            print("_____________________________________________")
                            if option == 1:
@@ -132,7 +123,8 @@ def main():
                             break
 
                            elif option == 3:
-                                break
+                               break 
+
                            else:
                             print("wrong option selected please try again!!")
 
@@ -141,8 +133,7 @@ def main():
                         print(
                             "_________________________________________________________")
                         print("Details Created Successfully..!!")
-                        print(
-                            f"Social Media{social_network} \n Account Name: {account_name} \n Password: {password}")
+                        print(f"Social Media: {social_network} \n Account Name: {account_name} \n Password: {password}")
                         print(" ")
 
                     elif option == 2:
@@ -151,12 +142,14 @@ def main():
                             print("List of your details")
                             print("____________________________________________")
                             for user_details in display_user_details(username):
-                                print(
-                                    f"Social Media: {user_details.social_network} \n Account Name: {user_details.account_name} \n Password: {user_details.password}")
+                                print(f"Social Media: {user_details.social_network} \n Password: {user_details.password}")
                         else:
                          print(" ")
                          print("No user details to display")
-                         print(" ")  
+                         print(" ") 
+                         
+                    elif option == 3:
+                        break    
             else:
                 print(" ")
                 print("Wrong details entered..!!!")

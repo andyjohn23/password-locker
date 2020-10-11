@@ -31,24 +31,19 @@ class user_credentials:
         """deleting user infromation"""
         user_credentials.user_credential_list.remove(self)
 
-    @classmethod
-    def automatic_generated_password(length=12, password_value=string.digits+string.punctuation):
+  
+    def automatic_generated_password(length=12, password=string.digits+string.ascii_letters+string.ascii_uppercase):
         """Function to generate a random password"""
-        random_password = random.choices(password_value, k=length)
-        generated_password = ''.join(random_password)
 
-        return generated_password
+        random_password = ''.join(random.choice(password) for i in range(length))
+        return random_password
+
 
     @classmethod
     def display_user_details(cls, username):
         """Class method to show user details"""
         user_credential_list = []
-        for user_details in user_credentials.user_credential_list:
+        for user_details in cls.user_credential_list:
             if user_details.username == username:
-             user_credential_list.append(user_details)
+                user_credential_list.append(user_details)
         return user_credential_list
-
-   
-    
-        
-    
