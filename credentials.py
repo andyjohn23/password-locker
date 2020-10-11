@@ -31,7 +31,8 @@ class user_credentials:
         """deleting user infromation"""
         user_credentials.user_credential_list.remove(self)
 
-    def automatic_generated_password(self, length=12, password_value=string.digits+string.punctuation):
+    @classmethod
+    def automatic_generated_password(length=12, password_value=string.digits+string.punctuation):
         """Function to generate a random password"""
         random_password = random.choices(password_value, k=length)
         generated_password = ''.join(random_password)
@@ -39,7 +40,7 @@ class user_credentials:
         return generated_password
 
     @classmethod
-    def display_user_credentials(username):
+    def display_user_details(username):
         """Class method to show user details"""
         user_credential_list = []
         for user_details in user_credentials.user_credential_list:
